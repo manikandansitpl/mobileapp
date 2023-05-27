@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
 
-const url = 'mongodb://127.0.0.1:27017/peoples'; 
+const url = 'mongodb://localhost:27017/peoples'; 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB!');
