@@ -1,5 +1,5 @@
-const persons = require('./sceema').model('persons')
-const sirs = require('./sceema').model('sirs')
+const persons = require('./sceema').model('persons');
+const sirs = require('./sceema').model('sirs');
 const bcrypt = require('bcrypt');
 
 
