@@ -21,6 +21,6 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   app.use('/api/person',router)
 
 ///port creation
-app.listen(2000,()=>{
+app.listen(8000,()=>{
     console.log('port connected')
 });
