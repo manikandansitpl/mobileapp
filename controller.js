@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 
 const personPost = async (req, res) => {
     const { Name, Password } = req.body;
-    console.log(Name,Password)
     if (!Name || !Password) {
         res.status(400).json('please fill all the fields')
     }
@@ -64,7 +63,7 @@ const retrive = async (req, res) => {
 };
 
 const personSet = async (req, res) => {
-    const getApp = await persons.find();
+    const getApp = await studentDetail.find();
     res.set('Content-Type', 'application/json');
     res.status(200).json(getApp)
 };
