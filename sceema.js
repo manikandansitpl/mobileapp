@@ -17,4 +17,4 @@ const StudentSceema = mongoose.Schema({
 
 
 
-module.exports = mongoose.model('studentDetail' , StudentSceema);
+module.exports = mongoose.model('RegisterStudent' , StudentSceema);
