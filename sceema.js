@@ -15,12 +15,6 @@ const StudentSceema = mongoose.Schema({
     }
 })
 
-const personsScheema = mongoose.Schema({
-    Name:{
-         type:String,
-         required:true
-    }
-})
 
-module.exports = mongoose.model('persons' , StudentSceema);
-module.exports = mongoose.model('sirs' , personsScheema)
+
+module.exports = mongoose.model('studentDetail' , StudentSceema);

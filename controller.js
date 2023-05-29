@@ -1,5 +1,4 @@
-const persons = require('./sceema').model('persons');
-const sirs = require('./sceema').model('sirs');
+const studentDetail = require('./sceema')
 const bcrypt = require('bcrypt');
 
 
@@ -7,6 +6,7 @@ const bcrypt = require('bcrypt');
 
 const personPost = async (req, res) => {
     const { Name, Password } = req.body;
+    console.log(Name,Password)
     if (!Name || !Password) {
         res.status(400).json('please fill all the fields')
     }
@@ -15,7 +15,7 @@ const personPost = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         // Hash the password with the salt
         const hashedPassword = await bcrypt.hash(req.body.Password, salt);
-        const savep = persons({
+        const savep = studentDetail({
             Name: req.body.Name,
             Password: hashedPassword
         })
