@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
 
-const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/';
+const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/sudentDB';
 // const connectionString = 'mongodb://0.0.0.0:27017/';
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
