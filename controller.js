@@ -15,7 +15,7 @@ const register = async (req, res) => {
             // Generate a salt
             const salt = await bcrypt.genSalt(10);
             // Hash the password with the salt
-            const hashedPassword = await bcrypt.hash(req.body.Password, salt);
+            const hashedPassword = await bcrypt.hashSync(req.body.Password, salt);
             const savep = RegisterStudent({
                 Name: req.body.Name,
                 Password: hashedPassword
@@ -31,21 +31,21 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const { Name, Password } = req.body;
-
+    let storedHashedPassword;
   try {
     // Retrieve the hashed password from the data store based on the username
-    const user = await User.findOne({ Name });
-
+    const user = await RegisterStudent.findOne({ Name });
+    storedHashedPassword = user?.Password;
     if (!user) {
       // User does not exist
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-
-    const storedHashedPassword = user.Password;
-
-    // Compare the plain password with the stored hashed password
-    const passwordMatch = await bcrypt.compare(Password, storedHashedPassword);
-
+  } catch (error) {
+    console.log(error);
+  }
+    try{
+         // Compare the plain password with the stored hashed password
+    const passwordMatch = await bcrypt.compareSync(Password, storedHashedPassword);
     if (passwordMatch) {
       // Passwords match, authentication successful
       return res.status(200).json({ message: 'Login successful' });
@@ -53,10 +53,10 @@ const login = async (req, res) => {
       // Passwords do not match
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Internal server error' });
-  }
+    } catch (error) {
+      console.log(error);
+    }
+ 
 };
 // const retrive = async (req, res) => {
 //     const Password = req?.body?.Password
