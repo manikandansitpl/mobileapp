@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/sudentDB';
-// const connectionString = 'mongodb://0.0.0.0:27017/';
+// const url = 'mongodb://0.0.0.0:27017/mobieDB';
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -33,6 +33,6 @@ app.use('/api/person', router)
 //   });
 
 ///port creation
-app.listen(8000, () => {
+app.listen(8000, (error) => {
   console.log('port connected')
 });
