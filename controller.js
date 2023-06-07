@@ -73,11 +73,11 @@ const login = async (req, res) => {
 //     }
 //   };
 
-// const personSet = async (req, res) => {
-//     const getApp = await studentDetail.find();
-//     res.set('Content-Type', 'application/json');
-//     res.status(200).json(getApp)
-// };
+const personGet = async (req, res) => {
+    const getApp = await RegisterStudent.find();
+    res.set('Content-Type', 'application/json');
+    res.status(200).json(getApp)
+};
 
 // const personPut = async (req, res) => {
 //     const result = await persons.findByIdAndUpdate({ _id: req.params.id }, { $set: { Name: req.body.Name } }, { new: true })
@@ -89,4 +89,4 @@ const login = async (req, res) => {
 //     res.status(200).json(result)
 // };
 
-module.exports = { login, register };
+module.exports = { login, register, personGet };
