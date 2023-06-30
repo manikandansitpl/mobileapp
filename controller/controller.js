@@ -29,17 +29,17 @@ const imageUpload = asynchandler((req, res ) =>{
 
 
 const register = asynchandler(async(req, res) => {
-  const { Name, Password } = req.body;
+  const { Name, Password,Email } = req.body;
   try {
-    const validateName = await User1.findOne({ Name: Name })
-    if (!Name || !Password) {res.status(400).json('please fill all the fields')}
+    const validateName = await User1.findOne({ Email: Email })
+    if (!Name || !Password || !Email) {res.status(400).json('please fill all the fields')}
     if (validateName) {res.status(409).json("user already exist")}
-    if (Name && Password && !validateName) {
+    if (Name && Password && Email && !validateName) {
       // Generate a salt
       const salt = await bcrypt.genSalt(10);
       // Hash the password with the salt
       const hashedPassword = await bcrypt.hashSync(req.body.Password,salt);
-      const savep = await User1({Name: req.body.Name, Password:hashedPassword});
+      const savep = await User1({Name: req.body.Name, Password:hashedPassword ,Email:Email});
       const show = await savep.save();
       res.status(200).json({message:"Register successfully" , show , token:show._id});
     }
@@ -81,7 +81,7 @@ const NewsPost = async (req, res) => {
             const show = await savep.save();
             res.status(200).json({message:'Message Upload successfully' , show})
         } else{
-          res.status(400).json({message:"bad request"})
+          res.status(400).send({message:"bad request"})
         }
     } catch (error) {
         throw error

@@ -45,9 +45,9 @@ const UserScheema1 = mongoose.Schema({
         type : String,
         required:true
     },
-    MobileNumber:{
-        type:Number,
-        required:false,
+    Email:{
+        type:String,
+        required:true,
     }
 },
 {
