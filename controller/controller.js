@@ -1,6 +1,6 @@
 const{ User ,User1}= require('../scheema');
 const bcrypt = require('bcrypt');
-const process = require('dotenv').config();
+// const process = require('dotenv').config();
 const Img = require('../scheema');
 const multer = require('multer');
 const asynchandler= require('express-async-handler')
