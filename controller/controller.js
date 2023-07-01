@@ -4,11 +4,6 @@ const bcrypt = require('bcrypt');
 const Img = require('../scheema');
 const multer = require('multer');
 const asynchandler = require('express-async-handler')
-const twilio = require('twilio');
-
-const id = 'AC5f2daac531ffe1891067b8e18dca44e4';
-const token = 'f33766161e8781bae2cd2bfd59ce279b';
-
 
 const upload = multer({ dest: 'uploads/' })
 
