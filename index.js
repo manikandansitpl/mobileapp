@@ -16,9 +16,9 @@ app.use(cookieParser())
 
 
 
-// const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/fdmDb';
+const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/fdmDb';
 // const url = 'mongodb://0.0.0.0:27017/unqueDB';
-const url = 'mongodb://0.0.0.0:27017/fdmDb';
+// const url = 'mongodb://0.0.0.0:27017/fdmDb';
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
