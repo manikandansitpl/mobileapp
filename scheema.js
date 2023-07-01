@@ -1,23 +1,6 @@
 const mongoose = require('mongoose')
 
 const UserScheema = mongoose.Schema({
-    // Name :{
-    //     type : String,
-    //     required : true
-    // },
-    // Password:{
-    //     type : String,
-    //     required:true
-    // },
-    // MobileNumber:{
-    //     type:Number,
-    //     required:true,
-    // },
-    // picture:{
-    //     type:String,
-    //     required:false,
-    //     default:"https://i.stack.imgur.com/l60Hf.png"
-    // }
     Title:{
         type:String,
         required:true
@@ -55,7 +38,27 @@ const UserScheema1 = mongoose.Schema({
 }
 )
 
+const trendingScheema = mongoose.Schema({
+    Title:{
+        type:String,
+        required:true
+    },
+    News:{
+        type:String,
+        required:true
+    },
+    Img:{
+        type:String,
+        required:false
+    }
+},
+{
+    timestamps:true
+}
+)
+
 
 const User =  mongoose.model('News' , UserScheema);
 const User1 =  mongoose.model('RegisterUser' , UserScheema1);
-module.exports = {User, User1};
+const Trending = mongoose.model('trendingNews',trendingScheema)
+module.exports = {User, User1,Trending};
