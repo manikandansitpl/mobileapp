@@ -28,16 +28,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
 app.use('/api/person', router)
-// Call the listUsers function
-// iam.listUsers()
-//   .then((users) => {
-//     console.log('List of IAM users:', users);
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
-
-///port creation
-app.listen(8000, (error) => {
-  console.log('port connected')
+const port = process.env.port || 8000
+app.listen(port, (error) => {
+  console.log(`port connected with ${port}`)
 });
