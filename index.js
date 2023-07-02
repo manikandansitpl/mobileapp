@@ -28,7 +28,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
 app.use('/api/person', router)
-const port = process.env.port || 8000
+const port = 8000
 app.listen(port, (error) => {
   console.log(`port connected with ${port}`)
 });
