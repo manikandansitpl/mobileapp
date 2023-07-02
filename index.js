@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-
+const dotenv = require('dotenv').config()
 const iam = require('./awsIam')
 var morgan = require('morgan')
 var mongoose = require('mongoose')
@@ -16,9 +16,7 @@ app.use(cookieParser())
 
 
 
-const url = 'mongodb+srv://manikandansitpl3:83mb1dmaopS%40@mobilecluster0.nkmpjqj.mongodb.net/fdmDb';
-// const url = 'mongodb://0.0.0.0:27017/unqueDB';
-// const url = 'mongodb://0.0.0.0:27017/fdmDb';
+const url = process.env.MONGO_URI;
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -28,7 +26,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
 app.use('/api/person', router)
-const port = process.env.port || 8000
+const port = process.env.PORT || 8000
 app.listen(port, (error) => {
   console.log(`port connected with ${port}`)
 });
